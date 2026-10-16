@@ -34,7 +34,7 @@ The newsroom side (the decision panel, Laporan Tulisan) lives inside wp-admin, s
 
 ## Install
 
-1. Copy this folder to `wp-content/plugins/wp-ugc-desk`, or zip it and upload it under **Plugins → Add New → Upload Plugin**. Activate it.
+1. Download [wp-ugc-desk.zip](https://github.com/aconymouse/wp-ugc-desk/releases/latest/download/wp-ugc-desk.zip) from Releases and upload it under **Plugins → Add New → Upload Plugin**. Activate it.
 2. Make a random key, for example with `openssl rand -hex 32`. Keep it somewhere safe.
 3. Open **Laporan Tulisan → Pengaturan** and fill in:
    - **Kunci** (key): the key from step 2. The front end must use the same one. If you'd rather keep it in the server environment, set `UGC_DESK_SECRET` and this field picks it up.

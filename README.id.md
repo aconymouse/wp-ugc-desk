@@ -34,7 +34,7 @@ Bagian redaksinya (panel keputusan, Laporan Tulisan) ada di dalam wp-admin, jadi
 
 ## Cara pasang
 
-1. Salin folder ini ke `wp-content/plugins/wp-ugc-desk`, atau zip dulu lalu unggah lewat **Plugin → Tambah Baru → Unggah Plugin**. Aktifkan.
+1. Unduh [wp-ugc-desk.zip](https://github.com/aconymouse/wp-ugc-desk/releases/latest/download/wp-ugc-desk.zip) dari Releases, lalu unggah lewat **Plugin → Tambah Baru → Unggah Plugin**. Aktifkan.
 2. Bikin kunci acak, misalnya pakai `openssl rand -hex 32`. Simpan baik-baik.
 3. Buka **Laporan Tulisan → Pengaturan**, lalu isi:
    - **Kunci**: kunci tadi. Situs depan harus pakai kunci yang sama. Kalau lebih suka lewat env server, isi `UGC_DESK_SECRET` dan kolom ini otomatis ikut.
