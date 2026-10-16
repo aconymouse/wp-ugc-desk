@@ -2,7 +2,7 @@
 
 [English](api.md)
 
-Panduan ini buat kamu yang bikin situs depan sendiri, tanpa [wp-ugc-desk-next](https://github.com/aconymouse/wp-ugc-desk-next). Contohnya pakai curl, tinggal disesuaikan ke bahasa yang kamu pakai.
+Panduan ini buat kalian yang bikin situs depan sendiri, tanpa [wp-ugc-desk-next](https://github.com/aconymouse/wp-ugc-desk-next). Contohnya pakai curl, tinggal disesuaikan ke bahasa yang kalian pakai.
 
 ## Dasar
 
@@ -31,10 +31,10 @@ Kalau gagal, balasannya format error WordPress biasa. Pesannya udah bahasa Indon
 
 ## Alur singkat
 
-1. Pembaca daftar di situs kamu, lalu kamu panggil `POST /kontributor`. Simpan `wp_user_id` dari balasannya.
-2. Pembaca unggah gambar, kamu teruskan ke `POST /wp-json/wp/v2/media` (bawaan WordPress, pakai Application Password yang sama). Simpan `id`-nya.
-3. Pembaca kirim tulisan, kamu panggil `POST /naskah`.
-4. Redaksi ambil keputusan, plugin ngabarin webhook kamu.
+1. Pembaca daftar di situs kalian, lalu kalian panggil `POST /kontributor`. Simpan `wp_user_id` dari balasannya.
+2. Pembaca unggah gambar, kalian teruskan ke `POST /wp-json/wp/v2/media` (bawaan WordPress, pakai Application Password yang sama). Simpan `id`-nya.
+3. Pembaca kirim tulisan, kalian panggil `POST /naskah`.
+4. Redaksi ambil keputusan, plugin ngabarin webhook kalian.
 5. Kalau diminta revisi, ambil isinya lewat `GET /naskah/{id}`, lalu kirim ulang pakai `PUT /naskah/{id}`.
 
 ## Akun penulis
@@ -157,7 +157,7 @@ POST /naskah
 { "post_id": 20311 }
 ```
 
-- `akun_id` dan `naskah_id` itu ID dari sistem kamu sendiri. Plugin cuma nyimpen dan ngirim balik lewat webhook, biar gampang dicocokin.
+- `akun_id` dan `naskah_id` itu ID dari sistem kalian sendiri. Plugin cuma nyimpen dan ngirim balik lewat webhook, biar gampang dicocokin.
 - `judul` 10 sampai 120 karakter.
 - `dek` maksimal 200 karakter. Dipakai jadi ringkasan pos, juga jadi meta description Yoast kalau masih kosong.
 - `kategori_id` wajib dan harus ada di WordPress.
@@ -165,7 +165,7 @@ POST /naskah
 - `gambar_utama_id` opsional. Kalau diisi, harus ID gambar di Media.
 - `konten` paling enak berupa markup blok Gutenberg, biar rapi waktu dibuka di editor. HTML biasa juga jalan. Isinya disaring `wp_kses_post`, maksimal 400 KB.
 - Gambar di dalam konten kasih class `wp-image-{id}`, biar alt-nya otomatis diisi judul.
-- `kata` cuma dicatat buat laporan. Batas jumlah kata kamu atur sendiri di situs depan.
+- `kata` cuma dicatat buat laporan. Batas jumlah kata kalian atur sendiri di situs depan.
 
 ### Daftar tulisan
 
@@ -263,7 +263,7 @@ POST /laporan
 
 `pesan` 60 sampai 135 kata. Plugin nggak ngebatasin berapa kali orang boleh lapor, jadi batasi sendiri di situs depan. Owrite batasi per akun dan per jaringan.
 
-## Webhook ke situs kamu
+## Webhook ke situs kalian
 
 Plugin ngirim `POST` ke `{Alamat situs}/api/akun/webhook/`, termasuk garis miring di akhir, tiap kali:
 
@@ -299,11 +299,11 @@ Isinya:
 - `link` berisi URL publik kalau kejadiannya `terbit`, selain itu `null`.
 - `alasan` berisi catatan revisi atau alasan tolak. Buat `ubah-selesai`, isinya permintaan ubah dari penulis.
 
-Yang perlu kamu lakukan:
+Yang perlu kalian lakukan:
 
 1. Cocokkan header kunci. Pakai perbandingan yang aman dari timing attack.
 2. Cari akun pakai `akun_id`, pastikan `wp_user_id`-nya sama.
-3. Perbarui status di database kamu dan kirim email ke penulis.
+3. Perbarui status di database kalian dan kirim email ke penulis.
 4. Balas 200.
 
 Plugin cuma nunggu 8 detik dan nggak ngulang kalau gagal. Jadi balas cepat, kerjaan berat taruh di belakang.
@@ -337,7 +337,7 @@ app.post("/api/akun/webhook/", express.json(), (req, res) => {
 });
 ```
 
-## Push ke situs kamu
+## Push ke situs kalian
 
 Kalau pos yang dicentang "Kirim notifikasi ke pembaca" terbit, plugin ngirim `POST` ke `{Alamat situs}/api/push/kirim/` dengan header yang sama kayak webhook.
 
@@ -364,7 +364,7 @@ Balasan yang dimengerti plugin:
 | 409 | Pos ini udah pernah dikirim. Dianggap berhasil. |
 | Lainnya, `{ "pesan": "..." }` | Gagal. Pesannya muncul di editor. |
 
-Batas tunggunya 10 detik. Balas dulu, kirim push-nya belakangan. Mau pakai web-push, OneSignal, atau FCM terserah kamu.
+Batas tunggunya 10 detik. Balas dulu, kirim push-nya belakangan. Mau pakai web-push, OneSignal, atau FCM terserah kalian.
 
 ## Data laporan
 

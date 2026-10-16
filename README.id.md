@@ -60,9 +60,9 @@ Opsional: kalau di PublishPress Authors ada Author Category dengan slug `kolumni
 
 Bisa. Plugin ini nggak peduli situs depannya dibikin pakai apa. Nuxt, Astro, SvelteKit, Laravel, Express, PHP biasa, semuanya bisa, asal ada bagian server-nya.
 
-Yang perlu kamu siapin di situs depan:
+Yang perlu kalian siapin di situs depan:
 
-1. **Login sendiri.** Plugin nggak ngurus login pembaca. Simpan akun di database kamu, lalu catat `wp_user_id` yang dikasih plugin waktu akun dibuat.
+1. **Login sendiri.** Plugin nggak ngurus login pembaca. Simpan akun di database kalian, lalu catat `wp_user_id` yang dikasih plugin waktu akun dibuat.
 2. **Panggil API dari server.** Tiap request butuh Kunci dan Application Password admin, jadi jangan pernah dipanggil dari browser.
 3. **Alamat webhook** di `/api/akun/webhook/` buat nerima kabar keputusan redaksi.
 4. **Alamat push** di `/api/push/kirim/`, kalau mau pakai notifikasi.
