@@ -26,6 +26,16 @@ Bagian redaksinya (panel keputusan, Laporan Tulisan) ada di dalam wp-admin, jadi
 - **Laporan Tulisan.** Rekap per penulis: kiriman, revisi, ditolak, terbit, terjadwal. Bisa pilih rentang tanggal dan unduh Excel atau CSV.
 - **Notifikasi push.** Centang "Kirim notifikasi ke pembaca" di editor. Pas pos terbit, plugin minta situs depan ngirim push ke pembaca yang langganan kategorinya. Satu pos cuma dikirim sekali.
 
+## Kenapa dibikin begini
+
+Plugin ini dipakai editor tiap hari, jadi aturan utamanya sederhana: jangan nambah kerjaan mereka.
+
+- Keputusan redaksi ada di panel editor blok, tempat editor emang lagi kerja. Nggak perlu pindah halaman.
+- Revisi balik ke pos yang sama, jadi nggak ada pos dobel yang harus dirapihin belakangan.
+- Jadwal tayang ditulis "Besok, 9.30 pagi", bukan `2026-10-18 09:30:00`.
+- Kiriman masuk, perlu revisi, dan ditolak punya tab sendiri di daftar pos, jadi antreannya kelihatan sekali lirik.
+- Laporan pembaca punya angka belum dibaca di menu, biar nggak ada yang kelewat.
+
 ## Yang dibutuhkan
 
 - WordPress 6 ke atas, PHP 7.4 ke atas, ekstensi `zip` buat unduh Excel
@@ -82,8 +92,12 @@ ugcd_jejak_tulisan($postId, $sertakanOleh);
 Action: `ugcd_jejak_dicatat`, `ugcd_naskah_masuk`, `ugcd_kontributor_term_diperbarui`.
 Filter: `ugcd_peran_penulis`, `ugcd_kontributor_medsos_meta`, `ugcd_kontributor_kategori_slug`.
 
-## Kredit
+## Tentang pembuatnya
 
-Dibikin sama Hafidz Nc ([Aconymous](https://aconymous.com), [GitHub](https://github.com/aconymouse), [LinkedIn](https://www.linkedin.com/in/tjuanmudaco/)) buat Owrite.
+Aku Hafidz Nc, dikenal juga sebagai Aconymous. Founder [Owrite](https://www.owrite.id), dan yang ngerjain produknya sendiri, dari desain sampai kode.
+
+Fokusku di UI/UX. Buatku tampilan itu bagian dari produk, sama pentingnya kayak fiturnya. Fitur yang ribet dipakai ujung-ujungnya ditinggal, dan di media itu langsung kerasa ke bisnis: naskah yang batal dikirim, atau pembaca yang nggak balik lagi. Makanya aku lebih sering ngabisin waktu di detail kecil kayak di bagian [Kenapa dibikin begini](#kenapa-dibikin-begini) daripada nambah fitur baru.
+
+[aconymous.com](https://aconymous.com) · [GitHub](https://github.com/aconymouse) · [LinkedIn](https://www.linkedin.com/in/tjuanmudaco/)
 
 Lisensi GPL-2.0-or-later.

@@ -26,6 +26,16 @@ The newsroom side (the decision panel, Laporan Tulisan) lives inside wp-admin, s
 - **Laporan Tulisan.** A per-writer summary of submissions, revisions, declines, published and scheduled posts. Pick a date range, download Excel or CSV.
 - **Web push.** Tick "Kirim notifikasi ke pembaca" in the editor. When the post goes live, the plugin asks the front end to send a push to readers who follow that category. Each post is sent once.
 
+## Why it works this way
+
+Editors use this every day, so the main rule was simple: don't add to their workload.
+
+- Decisions live in a panel inside the block editor, where editors already are. No extra page to open.
+- A revision goes back into the same post, so there are no duplicates to clean up later.
+- Schedules read "Besok, 9.30 pagi" (tomorrow, 9:30 am) instead of `2026-10-18 09:30:00`.
+- Incoming, needs-revision, and declined pieces each get a tab in the post list, so the queue is clear at a glance.
+- Reader reports show an unread count in the menu so nothing slips by.
+
 ## Requirements
 
 - WordPress 6+, PHP 7.4+, the `zip` extension for Excel downloads
@@ -82,8 +92,12 @@ ugcd_jejak_tulisan($postId, $sertakanOleh);
 Actions: `ugcd_jejak_dicatat`, `ugcd_naskah_masuk`, `ugcd_kontributor_term_diperbarui`.
 Filters: `ugcd_peran_penulis`, `ugcd_kontributor_medsos_meta`, `ugcd_kontributor_kategori_slug`.
 
-## Credit
+## About the maker
 
-Made by Hafidz Nc ([Aconymous](https://aconymous.com), [GitHub](https://github.com/aconymouse), [LinkedIn](https://www.linkedin.com/in/tjuanmudaco/)) for Owrite.
+I'm Hafidz Nc, also known as Aconymous. I founded [Owrite](https://www.owrite.id) and build the product myself, design and code.
+
+My focus is UI/UX. To me the interface is part of the product, as much as the features are. A feature that's awkward to use gets abandoned, and in a newsroom that hits the business fast: a piece that never gets sent, or a reader who doesn't come back. That's why I spend more time on small details like the ones in [Why it works this way](#why-it-works-this-way) than on adding new features.
+
+[aconymous.com](https://aconymous.com) · [GitHub](https://github.com/aconymouse) · [LinkedIn](https://www.linkedin.com/in/tjuanmudaco/)
 
 GPL-2.0-or-later.
